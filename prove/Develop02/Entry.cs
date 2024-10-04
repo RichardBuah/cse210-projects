@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 public class Entry
 {
@@ -9,6 +10,6 @@ public class Entry
     public void entryDisplay()
     {
         Console.WriteLine($"{_date} {_promptText}");
-        Console.WriteLine($">>> {_entryText}");
+        Console.WriteLine($"> {_entryText}");
     }
 }
