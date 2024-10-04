@@ -14,24 +14,32 @@ public class Journal
 
     public void DisplayAll()
     {
-        foreach(Entry entry in _entries){
+        if (_entries.Count == 0){
+            Console.WriteLine("You have an empty list. Choose option 1 to add a New Entry.");
+        }
+        else{
+            foreach(Entry entry in _entries){
             Console.WriteLine($"{entry._date} {entry._promptText}\n> {entry._entryText}");
+            }
         }
     }
 
     public void SaveToFile(string file)
     {
-        string pathName = file;
-        TextWriter tw = new StreamWriter(pathName, true);
-        foreach(Entry entry in _entries){
-             tw.WriteLine($"{entry._date}, {entry._promptText}, {entry._entryText}");
+        if (_entries.Count == 0){
+            Console.WriteLine("You are saving an empty list to a file. The file will not be created by this command. Please choose option 1 to add a New Entry to your list, then you can proceed to store it in the same file name.");
         }
-        tw.Close();
+        else{
+            TextWriter tw = new StreamWriter(file, true);
+            foreach(Entry entry in _entries){
+                tw.WriteLine($"{entry._date}, {entry._promptText}, {entry._entryText}");
+            }
+            tw.Close();
+            }
     }
 
     public void LoadFromFile(string file)
     {
-        string pathName = file;
         string[] lines = System.IO.File.ReadAllLines(file);
 
         foreach(string line in lines){
