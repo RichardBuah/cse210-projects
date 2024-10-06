@@ -13,6 +13,7 @@ class Program
     {   
         // Creating a menu for the cool user experience
         int openMenu = 0;
+        var path = System.IO.Directory.GetParent(System.IO.Directory.GetParent(System.IO.Directory.GetParent((Environment.CurrentDirectory).ToString()).ToString()).ToString());
 
         // Creating all Instances
         PrommptGenerator autoPrm = new PrommptGenerator();
@@ -48,7 +49,7 @@ class Program
                 else if (openMenu == 3){
                     Console.WriteLine("Provide the name of the file you are saving to.");
                     string file = Console.ReadLine();
-                    clientJournal.SaveToFile($@"C:\Users\rbbua\OneDrive\Desktop\BYUI\CSE210\Git resipository\cse210-projects\prove\Develop02\{file}.csv");
+                    clientJournal.SaveToFile($@"{path}\{file}.csv");
                     openMenu = 0;
                 }
 
@@ -56,18 +57,18 @@ class Program
                     // Loading file
                     Console.WriteLine("Enter the name of the file you are loading from.");
                     string file = Console.ReadLine();
-                    clientJournal.LoadFromFile($@"C:\Users\rbbua\OneDrive\Desktop\BYUI\CSE210\Git resipository\cse210-projects\prove\Develop02\{file}.csv");
+                    clientJournal.LoadFromFile($@"{path}\{file}.csv");
                     openMenu = 0;
                 }
                 else if (openMenu == 5){
                     Console.WriteLine("Enter the name of the file you want to delete.");
                     string file = Console.ReadLine();
-                    System.IO.File.Delete($@"C:\Users\rbbua\OneDrive\Desktop\BYUI\CSE210\Git resipository\cse210-projects\prove\Develop02\{file}.csv");
+                    System.IO.File.Delete($@"{path}\{file}.csv");
                     openMenu = 0;
                 }
                 else{
                     openMenu = -1;
-                    Console.WriteLine("Aplication Closed");
+                    Console.WriteLine("Aplication Closed");   
                 }
             }
 
