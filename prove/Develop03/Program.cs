@@ -12,10 +12,9 @@ class Program
         string status = "";        
         string book = "Romans";
         int chapter = 1;
-        int verse = 1;
+        int verse = 13;
         int endVerse = 0;
-
-        string text = "Write down the expression for the iso-potentials and the streamline starting with the general solutions given in the course notes and inserting the appropriate well rates and locations given.";
+        string text = "But I do not want you to be unaware, brothers, that many times I have intended to come to you—but I have been prevented until now—in order that I might acquire some fruitage also among you just as among the rest of the nations.";
 
         string[] texts = text.Split(" ");
         Reference refRence = new Reference(book, chapter, verse, endVerse);
@@ -42,18 +41,19 @@ class Program
             bool stopConsoleNow = script1.IsCompletelyHidden();
             Console.WriteLine("Please press ENTER key to continue or type Quit to close the application");
             status = Console.ReadLine();
-            if (startLoop <= shaffleList.Count()-1)
+            if (startLoop < shaffleList.Count()-1 && stopConsoleNow == false)
             {
                 int numHide = shaffleList[startLoop];
-                startLoop += 1;
                 script1.HideRandomWords(numHide);
-                if (stopConsoleNow)
-                {
-                    status = "Quit";
-                }
+                startLoop += 1;
             }
             else 
             {
+                int numHide = shaffleList[startLoop];
+                script1.HideRandomWords(numHide);
+                Console.Clear();
+                Console.WriteLine(refRence.GetDisplayString());
+                Console.WriteLine(script1.GetDisplayText());
                 status = "Quit";
             }
         }
