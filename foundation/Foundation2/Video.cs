@@ -8,21 +8,17 @@ public class Video
     public string _author;
     public int _length;
     public List<Comment> _commentList = new List<Comment>();
-
-    // public Video(string title, string author, int length, Comment text)
-    // {
-    //     _title = title;
-    //     _author = author;
-    //     _length = (length*60);
-    //     _commentList.Add(text);
-    // }
-    // public int GetCommentNumber()
-    // {
-    //     int commentNumber = _commentList.Count();
-    //     return commentNumber;
-    // }
+    public void AddComment(Comment text)
+    {
+        _commentList.Add(text);
+    }
+    public int GetCommentNumber()
+     {
+         int commentNumber = _commentList.Count();
+         return commentNumber;
+    }
     public string GetDisplayText()
     {
-        return $"{_author} {_title} {_length}";
+        return $"Title          Author        Lenght      Number of Comments\n{_title}     {_author}       {_length} minutes        {GetCommentNumber()}";
     }
 }
