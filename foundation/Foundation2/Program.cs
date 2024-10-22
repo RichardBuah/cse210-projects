@@ -126,5 +126,74 @@ class Program
                 Console.WriteLine(i.GetDisplayText());
             }
         }
-    }
+        // FOUNDATION 2
+        // First Order
+        
+        List<Product> products1 = new List<Product>();
+        Address address1 = new Address("111A st. Nw", "Edmonton", "Alberta", "GH");
+        string country1 = address1.GetDestination();
+        Customer cus1 = new Customer("Gerard Green", address1);
+        Product prod1 = new Product("Shoe", "van32r", 55, 4);products1.Add(prod1);
+        Product prod2 = new Product("Bag", "Bag34i", 150, 2);products1.Add(prod2);
+        Product prod3 = new Product("Hoodie", "hd136ci", 99, 6);products1.Add(prod3);
+        bool usTrue1 = cus1.GetDestination(country1);
+        Order order1 = new Order(cus1, products1);
+        
+        // Second Order
+        List<Product> products2 = new List<Product>();
+        Address address2 = new Address("119 st. NE", "Calgary", "Alberta", "US");
+        string country2 = address2.GetDestination();
+        Customer cus2 = new Customer("Gate Mason", address2);
+        Product prod4 = new Product("Book", "bk90we", 13.99, 6); products2.Add(prod4);
+        Product prod5 = new Product("Ipad", "ip45b", 999.7, 1);products2.Add(prod5);
+        Product prod6 = new Product("Calculator", "cFx991-esPlus", 33.28, 1);products2.Add(prod6);
+        bool usTrue2 = cus2.GetDestination(country2);
+        Order order2 = new Order(cus2, products2);
+        
+        int num = 0;
+        Console.WriteLine($"\nTHIS IS FOUNDATION TWO\nPRODUCT ONE");
+        Console.WriteLine("\nPackage Label");
+        foreach(Product item in products1)
+        {
+            Console.WriteLine(order1.GetPackingLabel(cus1.GetDisplayText(), num));
+            num += 1;
+        }
+        Console.WriteLine("\nShipping Label");
+        Console.WriteLine(order1.GetShippingLabel(cus1.GetDisplayText(), address1.GetDisplayText()));
+        if (usTrue1 == true)
+        {
+            Console.WriteLine("\nTotal cost");
+            double deliveryCost = 5;
+            Console.WriteLine(order1.GetTotalCost(deliveryCost));
+        }
+        else 
+        {
+            Console.WriteLine("\nTotal cost");
+            double deliveryCost = 35;
+            Console.WriteLine(order1.GetTotalCost(deliveryCost));
+        }
+
+        num = 0;
+        Console.WriteLine($"\nPRODUCT TWO");
+        Console.WriteLine("\nPackage Label");
+        foreach(Product item in products2)
+        {
+            Console.WriteLine(order2.GetPackingLabel(cus2.GetDisplayText(), num));
+            num += 1;
+        }
+        Console.WriteLine("\nShipping Label");
+        Console.WriteLine(order2.GetShippingLabel(cus1.GetDisplayText(), address2.GetDisplayText()));
+        if (usTrue1 == true)
+        {
+            Console.WriteLine("\nTotal cost");
+            double deliveryCost = 5;
+            Console.WriteLine(order2.GetTotalCost(deliveryCost));
+        }
+        else 
+        {
+            Console.WriteLine("\nTotal cost");
+            double deliveryCost = 35;
+            Console.WriteLine(order2.GetTotalCost(deliveryCost));
+        }
+    }    
 }

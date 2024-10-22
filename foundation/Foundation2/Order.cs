@@ -1,19 +1,32 @@
 using System;
+using System.Runtime.CompilerServices;
 
 public class Order
 {
-    private string _customer;
-    private List<string> _productList;
-    public int GetTotalCost()
+    private Customer _customer;
+    private List<Product> _productList;
+    public Order(Customer customer, List<Product> product)
     {
-        return 0;
+        _customer = customer;
+        _productList = product;
     }
-    private string GetPackingLabel()
+    public double GetTotalCost(double dileveryCost)
     {
-        return "";
+        double totalCost = 0;
+        
+        foreach(Product item in _productList)
+        {
+            totalCost += item.GetTotalCost();
+        }
+        totalCost += dileveryCost;
+        return totalCost;
     }
-    private string GetShippingLabel()
+    public string GetPackingLabel(string customer, int number)
     {
-        return "";
+        return $"{customer}-{_productList[number].GetProductName()}{_productList[number].GetProductId()}";
+    }
+    public string GetShippingLabel(string customer, string address)
+    {
+        return $"{customer}--{address}";
     }
 }

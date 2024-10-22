@@ -4,9 +4,24 @@ public class Customer
 {
     private string _name;
     private Address _address;
-    public bool GetDestination()
+    public Customer(string name, Address address)
     {
-        bool yesOrNo = new Address().GetDestination();
+        _name = name;
+        _address = address;
+    }
+    public bool GetDestination(string address)
+    {
+        bool yesOrNo = false;
+        if (address.ToLower() == "us" || address.ToLower() == "usa")
+        {
+            yesOrNo = true;
+        }
+        else 
+        {yesOrNo = false;} 
         return yesOrNo;
+    }
+    public string GetDisplayText()
+    {
+        return $"{_name}";
     }
 }
