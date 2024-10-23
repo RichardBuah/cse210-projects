@@ -48,31 +48,31 @@ class Program
         
         // For video 2
         Video vid2 = new Video();
-        vid2._title = "Motor Cycle";
+        vid2._title = "Man Strives";
         vid2._author = "Sport 2";
         vid2._length = 15;
-        string v2C1 = "Evans Green/evg11/The car is nice."; // comments
+        string v2C1 = "Sophia Black/sb97/Love the scenery in this picture!"; // comments
         commentRef = v2C1.Split("/");
         Comment comment5 = new Comment();
         comment5._name = commentRef[0];
         comment5._handle = commentRef[1];
         comment5._text = commentRef[2];
         vid2.AddComment(comment5); // title,Author,length in minutes
-        string v2C2 = "Smith Ray/sm181/Love it looks."; // comments
+        string v2C2 = "James Walker/jw22/This movie was incredible, totally worth the watch!"; // comments
         commentRef = v2C2.Split("/");
         Comment comment6 = new Comment();
         comment6._name = commentRef[0];
         comment6._handle = commentRef[1];
         comment6._text = commentRef[2];
         vid2.AddComment(comment6); // title,Author,length in minutes
-        string v2C3 = "Cole Palmer/cp004/Check the speed man."; // comments
+        string v2C3 = "Andrew Hawkings/anDre8/I can only imagine."; // comments
         commentRef = v2C3.Split("/");
         Comment comment7 = new Comment();
         comment7._name = commentRef[0];
         comment7._handle = commentRef[1];
         comment7._text = commentRef[2];
         vid2.AddComment(comment7); // title,Author,length in minutes
-        string v2C4 = "Lamie Yamal/lya98/The tyres are huge!"; // comments
+        string v2C4 = "Emily Davis/edx01/The movie was super interesting!"; // comments
         commentRef = v2C4.Split("/");
         Comment comment8 = new Comment();
         comment8._name = commentRef[0];
@@ -86,28 +86,28 @@ class Program
         vid3._title = "Fighter Jet";
         vid3._author = "F3 Sports";
         vid3._length = 13;
-        string v3C1 = "Evans Green/evg11/The car is nice."; // comments
+        string v3C1 = "Liam Carter/lc08/I can't believe how fast this jet is!"; // comments
         commentRef = v3C1.Split("/");
         Comment comment9 = new Comment();
         comment9._name = commentRef[0];
         comment9._handle = commentRef[1];
         comment9._text = commentRef[2];
         vid3.AddComment(comment9); // title,Author,length in minutes
-        string v3C2 = "Smith Ray/sm181/Love it looks."; // comments
+        string v3C2 = "Mia Thompson/mt56/This beast handles like a dream on sharp turns!"; // comments
         commentRef = v3C2.Split("/");
         Comment comment10 = new Comment();
         comment10._name = commentRef[0];
         comment10._handle = commentRef[1];
         comment10._text = commentRef[2];
         vid3.AddComment(comment10); // title,Author,length in minutes
-        string v3C3 = "Cole Palmer/cp004/Check the speed man."; // comments
+        string v3C3 = "Noah Bennett/nb77/I've never seen a truck with so much power!"; // comments
         commentRef = v3C3.Split("/");
         Comment comment11 = new Comment();
         comment11._name = commentRef[0];
         comment11._handle = commentRef[1];
         comment11._text = commentRef[2];
         vid3.AddComment(comment11); // title,Author,length in minutes
-        string v3C4 = "Lamie Yamal/lya98/The tyres are huge!"; // comments
+        string v3C4 = "Oliver Harris/oh34/The acceleration on this bike is insane!"; // comments
         commentRef = v3C4.Split("/");
         Comment comment12 = new Comment();
         comment12._name = commentRef[0];
