@@ -22,8 +22,7 @@ public class Activity
         Console.WriteLine($"Welcome to the {_name} Acticity.");
         Console.WriteLine($"\n{_description}");
         Console.WriteLine("\nHow Long do you want to spend on this activity in seconds.");
-        _duration = int.Parse(Console.ReadLine());
-        
+        _duration = int.Parse(Console.ReadLine());   
     }
     public void DisplayEndingMessage()
     {
@@ -63,8 +62,7 @@ public class Activity
             {
                 ind = 0;
             }
-        }      
-        
+        }         
     }
     public void ShowCountDown(int seconds)
     {
