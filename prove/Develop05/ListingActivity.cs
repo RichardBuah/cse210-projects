@@ -52,6 +52,7 @@ public class ListingActivity : Activity
             _userList.Add(Console.ReadLine());
             _count++; 
         }
+        Console.WriteLine($"\nYou were able to list {_count} item(s) for this session.");
         return _userList;
     }
 }
