@@ -176,10 +176,12 @@ public class GoalManager
                 string shortName = data[1];
                 string description = data[3];
                 int points = int.Parse(data[4]);
+                string date = data[5];
                 SimpleGoal simp = new SimpleGoal(shortName,description,points);
                 if (IsComplete)
                 {
                     simp.RecordEvent();
+                    simp.SetDatecompleted(date);
                 }
                 _goals.Add(simp);
             }
@@ -200,10 +202,12 @@ public class GoalManager
                 int amountCompleted = int.Parse(data[5]);
                 int target = int.Parse(data[6]);
                 int bonus = int.Parse(data[7]);
+                string date = data[8];
                 ChecklistGoal check = new ChecklistGoal(shortName,description,points, target, bonus);
                 check.SetAmountcompleted(amountCompleted);
                 if (IsComplete)
                 {
+                    check.SetDatecompleted(date);
                     for (int i = 0; i < amountCompleted; i++)
                     {
                         check.RecordEvent();

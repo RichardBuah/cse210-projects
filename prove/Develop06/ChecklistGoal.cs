@@ -5,11 +5,13 @@ public class ChecklistGoal : Goal
     private int _amountCompleted;
     private int _target;
     private int _bonus;
+    private string _dateCompleted;
     public ChecklistGoal(): base()
     {
         _amountCompleted = 0;
         _target = 0;
         _bonus = 0;
+        _dateCompleted = "";
     }
     public ChecklistGoal(string shortName, string description, int points, int target, int bonus) : base(shortName, description, points) 
     {
@@ -19,6 +21,10 @@ public class ChecklistGoal : Goal
     public void SetAmountcompleted(int amountCompleted)
     {
         _amountCompleted = amountCompleted;
+    }
+    public void SetDatecompleted(string date)
+    {
+        _dateCompleted = date;
     }
     public override void RecordEvent()
     {
@@ -39,6 +45,7 @@ public class ChecklistGoal : Goal
     {
         if (_amountCompleted == _target)
         {
+            _dateCompleted = DateTime.Now.ToShortDateString();
             return true;
         }
         else 
@@ -50,7 +57,7 @@ public class ChecklistGoal : Goal
     {
         if (IsComplete())
         {
-            return $"[x] {GetShortName()} ({GetDescription()}) - {_amountCompleted}/{_target}";
+            return $"[x] {GetShortName()} ({GetDescription()}) - {_amountCompleted}/{_target} Completed on {_dateCompleted}";
         }
         else
         {
@@ -59,6 +66,6 @@ public class ChecklistGoal : Goal
     }
     public override string GetStringRepresentation()
     {
-        return $"C, {IsComplete()}, {GetShortName()}, {GetDescription()}, {_points}, {_amountCompleted}, {_target}, {_bonus}";
+        return $"C, {IsComplete()}, {GetShortName()}, {GetDescription()}, {_points}, {_amountCompleted}, {_target}, {_bonus}, {_dateCompleted}";
     }
 }
