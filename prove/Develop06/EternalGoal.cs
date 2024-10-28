@@ -2,6 +2,8 @@ using System;
 
 public class EternalGoal : Goal
 {
+    public EternalGoal() : base()
+    {}
     public EternalGoal(string shortName, string description, int points) : base(shortName, description, points) 
     {}
     public override void RecordEvent()
@@ -14,6 +16,6 @@ public class EternalGoal : Goal
     }
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"E, {GetShortName()}, {GetDescription()}, {_points}";
     }
 }
