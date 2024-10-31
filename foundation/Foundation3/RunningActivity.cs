@@ -9,12 +9,11 @@ public class Runningactivity : Activity
     }
     public override double GetDistance()
     {
-        int d = _laps*100/1000;
-        return d;
+        return _laps*100*0.001;
     }
     public override double GetSpeed()
     {
-        return _minutes/GetDistance()*60;
+        return GetDistance()/_minutes*60;
     }
     public override double GetPace()
     {

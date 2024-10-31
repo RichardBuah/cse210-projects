@@ -24,8 +24,8 @@ public abstract class Activity
     {
         return 0;
     }
-    public string GetSummaryString(double distance, double speed, double pace)
+    public string GetSummaryString()
     {
-        return $"{_date} {_name} ({_minutes} min): Distance {distance} Km, Speed:{speed} Kph, Pace: {pace} min per Km)";
+        return $"{_date} {_name} ({_minutes} min): Distance {Math.Round(GetDistance(), 4)} Km, Speed:{Math.Round(GetSpeed(), 4)} Kph, Pace: {Math.Round(GetPace(), 4)} min per Km";
     }
 }
